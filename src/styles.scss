@@ -1,3 +1,112 @@
+:root {
+  --c-primary: #21243D;
+  --c-secondary: #FF6464;
+  --c-natural: #FFF;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: antiquewhite;
+  margin: 0;
+  padding: 0;
+  font-family: 'Heebo', sans-serif;
+  color: var(--c-primary);
+  background-color: var(--c-natural);
+}
+
+.heading-main {
+  color: var(--c-primary);
+  margin: 0;
+  font-size: 16px;
+}
+
+.container {  
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 50px 300px 100px 100px 100px;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header menu menu menu"
+    "hero hero hero hero"
+    "main main . image"
+    "main main . extra"
+    "banner banner banner banner";
+}
+
+.header, .menu, .hero, .main, .image, .extra, .banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.header {
+  grid-area: header;
+  background-color: lightblue;
+}
+
+.menu {
+  grid-area: menu;
+  background-color: lightcoral;
+}
+
+.hero { grid-area: hero;
+  background-color: lightcyan;
+}
+
+.main {
+  grid-area: main;
+  background-color: lightgoldenrodyellow;
+}
+
+.image {
+  grid-area: image;
+  background-color: lightgray;
+}
+
+.extra {
+  grid-area: extra;
+  background-color: lightgreen;
+}
+
+.banner {
+  grid-area: banner;
+  background-color: lightpink;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+.container {
+  display: grid; 
+  grid-template-columns: 25% 25% 25% 25%; 
+  grid-template-rows: 50px 200px 200px 100px 100px; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "header header header header"
+    "hero hero hero hero"
+    "menu main main main"
+    "menu banner banner banner"
+    "menu extra extra image"; 
+}
+}
+
+@media (max-width: 767px) {
+  .container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px 50px 150px 150px 100px 100px 100px;
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    grid-template-areas:
+      "header"
+      "menu"
+      "hero"
+      "main"
+      "banner"
+      "extra"
+      "image";
+  }
 }
